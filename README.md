@@ -46,3 +46,12 @@ The system is developed using a Two-layers architecture: presentation and busine
 ## Technologies Used
 
 The system is developed using **C#**, **WPF**, **Entity Framework Core**, and **SQL**.
+
+## Configuration
+
+The application stores its data in a SQLite database. By default, the database file `inventory.db` is created in the application's base directory. You can change this location in two ways:
+
+1. **Edit `appsettings.json`** – Update the connection string in `StoreManagementSystem/ClassLibrary1/ClassLibrary1/appsettings.json`.
+2. **Set an environment variable** – Specify a custom path with the `DatabasePath` environment variable to override the location defined in the configuration file.
+
+The context will automatically build a SQLite connection string from these settings.

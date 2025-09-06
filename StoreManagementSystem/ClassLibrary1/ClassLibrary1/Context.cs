@@ -1,5 +1,6 @@
 ﻿using InventoryManagementSystem;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,10 +15,29 @@ namespace InventoryManagementSystem
         {
                 private readonly string _connectionString;
 
-                public Context(string? connectionString = null)
+                public Context()
                 {
                         var basePath = AppDomain.CurrentDomain.BaseDirectory;
-                        _connectionString = connectionString ?? $"Data Source={Path.Combine(basePath, \"inventory.db\")}";
+
+                        IConfiguration config = new ConfigurationBuilder()
+                                .SetBasePath(basePath)
+                                .AddJsonFile("appsettings.json", optional: true)
+                                .AddEnvironmentVariables()
+                                .Build();
+
+                        var connectionString = config.GetConnectionString("DefaultConnection");
+                        var pathOverride = config["DatabasePath"];
+                        if (!string.IsNullOrWhiteSpace(pathOverride))
+                        {
+                                connectionString = $"Data Source={pathOverride}";
+                        }
+
+                        if (string.IsNullOrWhiteSpace(connectionString))
+                        {
+                                connectionString = $"Data Source={Path.Combine(basePath, "inventory.db")}";
+                        }
+
+                        _connectionString = connectionString;
                 }
 
                 public DbSet<Inventory> Inventories { get; set; }
