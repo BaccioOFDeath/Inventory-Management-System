@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
@@ -9,9 +10,17 @@ using System.Threading.Tasks;
 
 namespace InventoryManagementSystem
 {
-	public class Context : DbContext
-	{
-		public DbSet<Inventory> Inventories { get; set; }
+        public class Context : DbContext
+        {
+                private readonly string _connectionString;
+
+                public Context(string? connectionString = null)
+                {
+                        var basePath = AppDomain.CurrentDomain.BaseDirectory;
+                        _connectionString = connectionString ?? $"Data Source={Path.Combine(basePath, \"inventory.db\")}";
+                }
+
+                public DbSet<Inventory> Inventories { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<InventoryCategory> InventoryCategories { get; set; }
@@ -31,13 +40,13 @@ namespace InventoryManagementSystem
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-		{
-			optionsBuilder
-					.UseSqlServer(@"Data source=DESKTOP-M0HL8AK; initial catalog = InventoriesManagementSystem; Integrated Security=True; trust server certificate = true");
+                {
+                        optionsBuilder
+                                        .UseSqlite(_connectionString);
 
 
-			//base.OnConfiguring(optionsBuilder);
-		}
+                        //base.OnConfiguring(optionsBuilder);
+                }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
