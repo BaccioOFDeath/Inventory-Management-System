@@ -7,34 +7,14 @@
         mc:Ignorable="d"
         Title="LoginView" Height="450" Width="800"
         MinHeight="550"
-        WindowStyle="None"
-        ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
-        Background="Transparent"
-        AllowsTransparency="True"
-        >
+        Style="{StaticResource ChromelessWindowStyle}">
 
     <Border CornerRadius="15">
         <Border.Background>
             <ImageBrush ImageSource="../Images/storage.jpg"
                         Stretch="None"/>
         </Border.Background>
-        <Border CornerRadius="15"                    
-            BorderThickness="5"
-            Opacity="0.90">
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#462AD8" Offset="0"/>
-                    <GradientStop Color="#DA34AE" Offset="0.75"/>
-                    <GradientStop Color="#8A16C1" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0.4"/>
-                    <GradientStop Color="#FF332A6F" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
+        <Border Style="{StaticResource GradientBorderStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
@@ -197,36 +177,11 @@
                         </PasswordBox.Background>
                     </PasswordBox>
 
-                    <Button x:Name="btnLogin"                          
-                            BorderThickness="0"
+                    <Button x:Name="btnLogin"
                             Content="LOG IN"
-                            Foreground="White"
-                            FontSize="12"
-                            FontFamily="Montserrat"
-                            Cursor="Hand"                           
-                            Margin="0,50,0,0" Click="btnLogin_Click"
-                           >
-                        <Button.Style>
-                            <Style TargetType="Button">
-                                <Setter Property="Background" Value="#462AD8"/>
-                                <Style.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Background" Value="#28AEED"/>
-                                    </Trigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                        <Button.Template>
-                            <ControlTemplate TargetType="Button">
-                                <Border Width="150" Height="40"
-                                        CornerRadius="20"
-                                        Background="#FF4841C6">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                            Margin="0,50,0,0"
+                            Click="btnLogin_Click"
+                            Style="{StaticResource PrimaryButtonStyle}"/>
 
                 </StackPanel>
             </Grid>
