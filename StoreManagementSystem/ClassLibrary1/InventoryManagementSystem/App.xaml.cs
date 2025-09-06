@@ -19,12 +19,15 @@ namespace InventoryManagementSystem
 
                 if (!context.Users.Any())
                 {
+                    ShutdownMode = ShutdownMode.OnExplicitShutdown;
                     var setupWindow = new View.AdminSetupView();
                     setupWindow.ShowDialog();
+                    ShutdownMode = ShutdownMode.OnMainWindowClose;
                 }
             }
 
             var loginView = new View.LoginView();
+            MainWindow = loginView;
             loginView.Show();
         }
     }
