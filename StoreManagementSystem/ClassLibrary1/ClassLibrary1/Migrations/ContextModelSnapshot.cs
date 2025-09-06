@@ -38,28 +38,7 @@ namespace ClassLibrary1.Migrations
 
                     b.ToTable("Categories", (string)null);
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Name = "TVs"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "Phones"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Name = "TVs"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Name = "Phones"
-                        });
-                });
+                    });
 
             modelBuilder.Entity("InventoryManagementSystem.Customer", b =>
                 {
@@ -84,22 +63,7 @@ namespace ClassLibrary1.Migrations
 
                     b.ToTable("Customers", (string)null);
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Name = "Ahmed Mohammed",
-                            Phone = "01054987625",
-                            Remain = 0f
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "Hosam Mohammed",
-                            Phone = "01154980048",
-                            Remain = 0f
-                        });
-                });
+                    });
 
             modelBuilder.Entity("InventoryManagementSystem.CustomerOrder", b =>
                 {
@@ -195,23 +159,7 @@ namespace ClassLibrary1.Migrations
 
                     b.ToTable("Inventories", (string)null);
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Location = "Sohag"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Location = "Asyut"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Location = "Cairo"
-                        });
-                });
+                    });
 
             modelBuilder.Entity("InventoryManagementSystem.InventoryCategory", b =>
                 {
@@ -271,48 +219,7 @@ namespace ClassLibrary1.Migrations
 
                     b.ToTable("Products", (string)null);
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            CategoryID = 2,
-                            InventoryID = 1,
-                            Name = "Samsung",
-                            Price = 1500f,
-                            Quantity = 10,
-                            SellPrice = 2000f
-                        },
-                        new
-                        {
-                            ID = 2,
-                            CategoryID = 2,
-                            InventoryID = 1,
-                            Name = "IPone",
-                            Price = 2000f,
-                            Quantity = 15,
-                            SellPrice = 2300f
-                        },
-                        new
-                        {
-                            ID = 3,
-                            CategoryID = 1,
-                            InventoryID = 1,
-                            Name = "LG",
-                            Price = 5000f,
-                            Quantity = 50,
-                            SellPrice = 6000f
-                        },
-                        new
-                        {
-                            ID = 4,
-                            CategoryID = 1,
-                            InventoryID = 2,
-                            Name = "LG",
-                            Price = 2000f,
-                            Quantity = 15,
-                            SellPrice = 2300f
-                        });
-                });
+                    });
 
             modelBuilder.Entity("InventoryManagementSystem.ReturnCustomerOrder", b =>
                 {
@@ -463,22 +370,7 @@ namespace ClassLibrary1.Migrations
 
                     b.ToTable("Suppliers", (string)null);
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Name = "Hassn Ahmed",
-                            Phone = "01479687625",
-                            Remain = 0f
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "Khaled Mohammed",
-                            Phone = "01287625738",
-                            Remain = 0f
-                        });
-                });
+                    });
 
             modelBuilder.Entity("InventoryManagementSystem.SupplierOrder", b =>
                 {

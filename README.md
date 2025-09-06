@@ -46,3 +46,15 @@ The system is developed using a Two-layers architecture: presentation and busine
 ## Technologies Used
 
 The system is developed using **C#**, **WPF**, **Entity Framework Core**, and **SQL**.
+
+## Default Seed Data
+
+The initial migration inserts sample records to help you get started quickly:
+
+- **Inventories**: Sohag, Asyut, Cairo
+- **Categories**: TVs, Phones
+- **Products**: Samsung phone, IPone phone, two LG televisions
+- **Customers**: Ahmed Mohammed, Hosam Mohammed
+- **Suppliers**: Hassn Ahmed, Khaled Mohammed
+
+Run the database migrations to apply these defaults to a new database.
