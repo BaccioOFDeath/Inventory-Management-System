@@ -38,6 +38,9 @@ namespace InventoryManagementSystem
                         }
 
                         _connectionString = connectionString;
+
+                        // Ensure the database schema exists before any operations
+                        Database.EnsureCreated();
                 }
 
                 public DbSet<Inventory> Inventories { get; set; }
